@@ -16,14 +16,14 @@ public class HelloConfiguration {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
-    public HelloConfiguration(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory){
+    public HelloConfiguration(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
         this.jobBuilderFactory = jobBuilderFactory;
         this.stepBuilderFactory = stepBuilderFactory;
     }
 
     // job : batch의 실행 단위
     @Bean
-    public Job helloJob(){
+    public Job helloJob() {
         return jobBuilderFactory.get("helloJob")
                 .incrementer(new RunIdIncrementer())
                 .start(this.helloStep())
@@ -31,7 +31,7 @@ public class HelloConfiguration {
     }
 
     @Bean
-    public Step helloStep(){
+    public Step helloStep() {
         return stepBuilderFactory.get("helloStep")
                 .tasklet((contribution, chunkContext) -> {
                     log.info("hello spring batch");
