@@ -6,4 +6,4 @@ spring:
       username: root
       password: doseong9114!!
   batch:
-    initialize-schema: ALWAYS
+    initialize-schema: never
